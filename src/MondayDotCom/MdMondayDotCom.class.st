@@ -35,6 +35,12 @@ MdMondayDotCom class >> uniqueInstance: anObject [
 ]
 
 { #category : #'as yet unclassified' }
+MdMondayDotCom >> allPosts [
+
+	^ self allTasks flatCollect: #posts
+]
+
+{ #category : #'as yet unclassified' }
 MdMondayDotCom >> allTasks [
 
 	^ self boards flatCollect: #tasks

@@ -6,10 +6,23 @@ Class {
 	#instVars : [
 		'board',
 		'id',
-		'title'
+		'title',
+		'posts'
 	],
 	#category : #MondayDotCom
 }
+
+{ #category : #'as yet unclassified' }
+MdTask >> addPostWithID: anInteger [ 
+
+	| task |
+	task := MdPost new
+		task: self;
+		id: anInteger;
+		yourself.
+		
+	^ self posts add: task
+]
 
 { #category : #accessing }
 MdTask >> board [
@@ -42,6 +55,24 @@ MdTask >> initialize [
 
 	super initialize.
 	self ensureUUID
+]
+
+{ #category : #'as yet unclassified' }
+MdTask >> postWithID: anInteger [ 
+
+	^ self posts
+		detect: [ :t | t id = anInteger ]
+		ifNone: [ self addPostWithID: anInteger ]
+]
+
+{ #category : #accessing }
+MdTask >> posts [
+	^ posts ifNil: [ posts := OrderedCollection new ]
+]
+
+{ #category : #accessing }
+MdTask >> posts: anObject [
+	posts := anObject
 ]
 
 { #category : #'as yet unclassified' }

@@ -9,7 +9,7 @@ Class {
 	#category : #MondayDotCom
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : #private }
 MdBoard >> addTaskWithID: anInteger [ 
 
 	| task |
