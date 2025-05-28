@@ -11,6 +11,18 @@ Class {
 	#category : #MondayDotCom
 }
 
+{ #category : #persistence }
+MdMondayDotCom class >> restoreFrom: anObject [
+
+	UniqueInstance := anObject
+]
+
+{ #category : #persistence }
+MdMondayDotCom class >> spData [
+
+	^ UniqueInstance
+]
+
 { #category : #accessing }
 MdMondayDotCom class >> uniqueInstance [
 
